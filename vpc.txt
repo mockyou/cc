@@ -1,0 +1,5 @@
+#!/bin/bash sudo su
+yum update -y
+yum install httpd -y cd /var/www/html
+echo "22bd1a053w" > index.html service hƩpd start
+chkconfig hƩpd on
