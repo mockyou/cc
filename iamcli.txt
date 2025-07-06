@@ -1,7 +1,47 @@
-aws configure
+IAM---users,roles,groups --- both with cli and gui
+GUI:
+->IAM->users->give name->provide user access to aws console
+->i want to create a iam user
+->custom password->give password
+-> disable users must create a new password
+->next
+->set permissions->
+	user groups: if existing group
+	copy :if any user exits
+	attach policies directly->give s3,ec2 full access
+->then create user
+->in another browser->sign in ->id->suraj_ikkada->id
+->username and password prev created->sign in
+->access permitted activities and show denied access for other services
+
+CLI:
+->IAM->users->create user->give username-> disable provide user access to management console
+->then next
+->permissions-> Administrator Acess
+->User created
+->install aws cli in system
+->check version aws --version
+->to login into created user aws configure->
+					get access key ID and secret access key from 'create access key' option in the new user
+->region : us-east-1
+->format: json
+->to check users: aws iam list-users
+->now we try to create another user using this user
+->command:  aws iam create-user --user-name (new_user_name)
+->to check list of users: aws iam list-users
+->now for this second iam cli user created we need to grant s3 access
+->command: aws iam attach-user-policy --user-name (new_user_name) --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+->now that user will be granted s3 full access
+->to login into that again use: aws configure
+->again create secret access key
+->for aws configure:
+	access key ID
+	secret access key
+	region
+	json
+->we are now logged into new_user_name
+->to create bucket: aws s3 mb s3://(bucket_name)
+->create a file: echo "akjnrwsd" > test.txt
+-> adding file to bucket: aws s3 cp test.tst s3://(bucket_name)
 
 
-aws s3api create-bucket \
-  --bucket my-iam-user-bucket-123 \
-  --region us-east-1 \
-  --create-bucket-configuration LocationConstraint=us-east-1
