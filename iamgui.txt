@@ -1,0 +1,15 @@
+IAM---users,roles,groups --- both with cli and gui
+GUI:
+->IAM->users->give name->provide user access to aws console
+->i want to create a iam user
+->custom password->give password
+-> disable users must create a new password
+->next
+->set permissions->
+	user groups: if existing group
+	copy :if any user exits
+	attach policies directly->give s3,ec2 full access
+->then create user
+->in another browser->sign in ->id->suraj_ikkada->id
+->username and password prev created->sign in
+->access permitted activities and show denied access for other services
