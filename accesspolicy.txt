@@ -1,3 +1,8 @@
+/*sns bucket*/
+
+
+
+
 {
       "Sid": "AllowS3ToPublish",
       "Effect": "Allow",
